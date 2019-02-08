@@ -45,7 +45,9 @@ class BurgerBuilder extends Component {
         return(
             <Fragment>
                 <Modal show={this.state.purchasing} closeModal={this.closePurchasingHandler}>
-                    <OrderSummary ingredients={this.state.ingredients}/>
+                    <OrderSummary ingredients={this.state.ingredients}
+                                    cancelButton={this.closePurchasingHandler}
+                                    successButton={this.purchaseContinue}/>
                 </Modal>
                 <Burger ingredients={this.state.ingredients}/>
                 <BuilderControls addIgredients={this.addIgredients}
@@ -56,6 +58,10 @@ class BurgerBuilder extends Component {
                                  ordered={this.purchasingHandler}/>
             </Fragment>
         );
+    }
+
+    purchaseContinue = ()=>{
+
     }
 
     purchasingHandler = () => {
