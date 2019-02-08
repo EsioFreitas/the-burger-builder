@@ -5,11 +5,16 @@
  import './Burger.css';
 
  const burger = props =>{
+     const transformedIgredients = Object.keys(props.ingredients)
+        .map(igKey => {
+            return [...Array(props.ingredients[igKey])].map((_,i)=>{
+                return <BurgerIngredients key={igKey+i} type={igKey}/>
+            });
+        });
      return(
         <div className='Burger'>
             <BurgerIngredients type='bread-top'/> 
-            <BurgerIngredients type='salad'/> 
-            <BurgerIngredients type='meat'/> 
+            {transformedIgredients}
             <BurgerIngredients type='bread-bottom'/> 
         </div>
      );
