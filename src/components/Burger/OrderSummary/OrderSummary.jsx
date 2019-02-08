@@ -2,8 +2,6 @@ import React, {Fragment} from 'react';
 
 import Button from '../../UI/Button/Button'
 
-import './OrderSummary.css';
-
 const orderSummary = props =>{
     const ingredients = Object.keys(props.ingredients)
         .map(key=>{
@@ -18,6 +16,7 @@ const orderSummary = props =>{
             <ul>
                 {ingredients}
             </ul>
+            <p><strong>Total price: {props.price}</strong></p>
             <Button btnType='Danger' clicked={props.cancelButton}>CANCEL</Button>
             <Button btnType='Success' clicked={props.successButton}>SUCCESS</Button>
         </Fragment>

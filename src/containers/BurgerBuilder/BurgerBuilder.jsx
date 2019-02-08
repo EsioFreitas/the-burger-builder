@@ -47,7 +47,8 @@ class BurgerBuilder extends Component {
                 <Modal show={this.state.purchasing} closeModal={this.closePurchasingHandler}>
                     <OrderSummary ingredients={this.state.ingredients}
                                     cancelButton={this.closePurchasingHandler}
-                                    successButton={this.purchaseContinue}/>
+                                    successButton={this.purchaseContinue}
+                                    price={this.state.totalPrice}/>
                 </Modal>
                 <Burger ingredients={this.state.ingredients}/>
                 <BuilderControls addIgredients={this.addIgredients}
