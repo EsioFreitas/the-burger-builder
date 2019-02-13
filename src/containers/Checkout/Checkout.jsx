@@ -13,9 +13,19 @@ class Checkout extends Component {
     render(){
         return(
             <div>
-                <CheckoutSummary ingredients={this.state.ingredients}/>
+                <CheckoutSummary ingredients={this.state.ingredients}
+                                 cancel={this.cancelhandler}
+                                 continue={this.continuehandler}/>
             </div>
         );
+    }
+
+    cancelhandler = ()=>{
+        this.props.history.goBack();
+    }
+
+    continuehandler = ()=>{
+        this.props.history.replace('/checkout/contact-data')
     }
 }
 
