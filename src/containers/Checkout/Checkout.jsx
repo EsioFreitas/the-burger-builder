@@ -10,6 +10,16 @@ class Checkout extends Component {
             cheese: 1
         }
     }
+
+    componentDidMount(){
+        const query = new URLSearchParams(this.props.location.search);
+        const ingredient = {};
+        for(let param of query.entries()){
+            ingredient[param[0]] = +param[1];
+        }
+        
+        this.setState({ingredients: ingredient});
+    }
     render(){
         return(
             <div>
